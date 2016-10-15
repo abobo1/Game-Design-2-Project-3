@@ -1,0 +1,6 @@
+0=>C:\Program Files\Reallusion\iClone 6\Bin64\iClone.exe
+1=>-ImportAvatar
+2=>C:\Users\echog\AppData\Local\Temp\3dx6Temp\ellisa.iAvatar
+0=>C:\Program Files\Reallusion\iClone 6\Bin64\iClone.exe
+1=>-ImportAvatar
+2=>C:\Users\echog\AppData\Local\Temp\3dx6Temp\ellisa.iAvatar

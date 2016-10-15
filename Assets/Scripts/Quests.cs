@@ -41,7 +41,7 @@ public class Quests {
         public String description;
         public int experience;
         public bool completed;
-        public ArrayList test;
+       // public ArrayList itemsGiven;
 
         public Quest(String name, String description, int experience, bool completed) {
             this.name = name;
