@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 0e5947a6b4d9d804394e46179edfc04f
+timeCreated: 1448108396
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Aspen_own5var
+    100004: Aspen_own5var_Bone_0_End
+    100006: Aspen_own5var_Bone_0_Start
+    100008: Aspen_own5var_Bone_10_End
+    100010: Aspen_own5var_Bone_10_Start
+    100012: Aspen_own5var_Bone_11_End
+    100014: Aspen_own5var_Bone_11_Start
+    100016: Aspen_own5var_Bone_12_End
+    100018: Aspen_own5var_Bone_12_Start
+    100020: Aspen_own5var_Bone_13_End
+    100022: Aspen_own5var_Bone_13_Start
+    100024: Aspen_own5var_Bone_14_End
+    100026: Aspen_own5var_Bone_14_Start
+    100028: Aspen_own5var_Bone_15_End
+    100030: Aspen_own5var_Bone_15_Start
+    100032: Aspen_own5var_Bone_16_End
+    100034: Aspen_own5var_Bone_16_Start
+    100036: Aspen_own5var_Bone_17_End
+    100038: Aspen_own5var_Bone_17_Start
+    100040: Aspen_own5var_Bone_18_End
+    100042: Aspen_own5var_Bone_18_Start
+    100044: Aspen_own5var_Bone_19_End
+    100046: Aspen_own5var_Bone_19_Start
+    100048: Aspen_own5var_Bone_1_End
+    100050: Aspen_own5var_Bone_2_End
+    100052: Aspen_own5var_Bone_3_End
+    100054: Aspen_own5var_Bone_4_End
+    100056: Aspen_own5var_Bone_5_End
+    100058: Aspen_own5var_Bone_6_End
+    100060: Aspen_own5var_Bone_6_Start
+    100062: Aspen_own5var_Bone_7_End
+    100064: Aspen_own5var_Bone_7_Start
+    100066: Aspen_own5var_Bone_8_End
+    100068: Aspen_own5var_Bone_8_Start
+    100070: Aspen_own5var_Bone_9_End
+    100072: Aspen_own5var_Bone_9_Start
+    100074: Aspen_own5var_Root
+    400000: Aspen_own5var
+    400002: //RootNode
+    400004: Aspen_own5var_Bone_0_End
+    400006: Aspen_own5var_Bone_0_Start
+    400008: Aspen_own5var_Bone_10_End
+    400010: Aspen_own5var_Bone_10_Start
+    400012: Aspen_own5var_Bone_11_End
+    400014: Aspen_own5var_Bone_11_Start
+    400016: Aspen_own5var_Bone_12_End
+    400018: Aspen_own5var_Bone_12_Start
+    400020: Aspen_own5var_Bone_13_End
+    400022: Aspen_own5var_Bone_13_Start
+    400024: Aspen_own5var_Bone_14_End
+    400026: Aspen_own5var_Bone_14_Start
+    400028: Aspen_own5var_Bone_15_End
+    400030: Aspen_own5var_Bone_15_Start
+    400032: Aspen_own5var_Bone_16_End
+    400034: Aspen_own5var_Bone_16_Start
+    400036: Aspen_own5var_Bone_17_End
+    400038: Aspen_own5var_Bone_17_Start
+    400040: Aspen_own5var_Bone_18_End
+    400042: Aspen_own5var_Bone_18_Start
+    400044: Aspen_own5var_Bone_19_End
+    400046: Aspen_own5var_Bone_19_Start
+    400048: Aspen_own5var_Bone_1_End
+    400050: Aspen_own5var_Bone_2_End
+    400052: Aspen_own5var_Bone_3_End
+    400054: Aspen_own5var_Bone_4_End
+    400056: Aspen_own5var_Bone_5_End
+    400058: Aspen_own5var_Bone_6_End
+    400060: Aspen_own5var_Bone_6_Start
+    400062: Aspen_own5var_Bone_7_End
+    400064: Aspen_own5var_Bone_7_Start
+    400066: Aspen_own5var_Bone_8_End
+    400068: Aspen_own5var_Bone_8_Start
+    400070: Aspen_own5var_Bone_9_End
+    400072: Aspen_own5var_Bone_9_Start
+    400074: Aspen_own5var_Root
+    4300000: Aspen_own5var
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Aspen_own5var
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

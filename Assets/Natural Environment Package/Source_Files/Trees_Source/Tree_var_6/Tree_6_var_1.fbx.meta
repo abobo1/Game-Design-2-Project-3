@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: deabd68e956c53a4b88e2b57dba17825
+timeCreated: 1452185714
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Oak_special
+    100004: Oak_special_Bone_0_End
+    100006: Oak_special_Bone_0_Start
+    100008: Oak_special_Bone_10_End
+    100010: Oak_special_Bone_10_Start
+    100012: Oak_special_Bone_11_End
+    100014: Oak_special_Bone_11_Start
+    100016: Oak_special_Bone_12_End
+    100018: Oak_special_Bone_12_Start
+    100020: Oak_special_Bone_13_End
+    100022: Oak_special_Bone_13_Start
+    100024: Oak_special_Bone_14_End
+    100026: Oak_special_Bone_15_End
+    100028: Oak_special_Bone_16_End
+    100030: Oak_special_Bone_16_Start
+    100032: Oak_special_Bone_17_End
+    100034: Oak_special_Bone_17_Start
+    100036: Oak_special_Bone_18_End
+    100038: Oak_special_Bone_18_Start
+    100040: Oak_special_Bone_19_End
+    100042: Oak_special_Bone_19_Start
+    100044: Oak_special_Bone_1_End
+    100046: Oak_special_Bone_2_End
+    100048: Oak_special_Bone_3_End
+    100050: Oak_special_Bone_3_Start
+    100052: Oak_special_Bone_4_End
+    100054: Oak_special_Bone_4_Start
+    100056: Oak_special_Bone_5_End
+    100058: Oak_special_Bone_5_Start
+    100060: Oak_special_Bone_6_End
+    100062: Oak_special_Bone_7_End
+    100064: Oak_special_Bone_8_End
+    100066: Oak_special_Bone_8_Start
+    100068: Oak_special_Bone_9_End
+    100070: Oak_special_Bone_9_Start
+    100072: Oak_special_Root
+    400000: Oak_special
+    400002: //RootNode
+    400004: Oak_special_Bone_0_End
+    400006: Oak_special_Bone_0_Start
+    400008: Oak_special_Bone_10_End
+    400010: Oak_special_Bone_10_Start
+    400012: Oak_special_Bone_11_End
+    400014: Oak_special_Bone_11_Start
+    400016: Oak_special_Bone_12_End
+    400018: Oak_special_Bone_12_Start
+    400020: Oak_special_Bone_13_End
+    400022: Oak_special_Bone_13_Start
+    400024: Oak_special_Bone_14_End
+    400026: Oak_special_Bone_15_End
+    400028: Oak_special_Bone_16_End
+    400030: Oak_special_Bone_16_Start
+    400032: Oak_special_Bone_17_End
+    400034: Oak_special_Bone_17_Start
+    400036: Oak_special_Bone_18_End
+    400038: Oak_special_Bone_18_Start
+    400040: Oak_special_Bone_19_End
+    400042: Oak_special_Bone_19_Start
+    400044: Oak_special_Bone_1_End
+    400046: Oak_special_Bone_2_End
+    400048: Oak_special_Bone_3_End
+    400050: Oak_special_Bone_3_Start
+    400052: Oak_special_Bone_4_End
+    400054: Oak_special_Bone_4_Start
+    400056: Oak_special_Bone_5_End
+    400058: Oak_special_Bone_5_Start
+    400060: Oak_special_Bone_6_End
+    400062: Oak_special_Bone_7_End
+    400064: Oak_special_Bone_8_End
+    400066: Oak_special_Bone_8_Start
+    400068: Oak_special_Bone_9_End
+    400070: Oak_special_Bone_9_Start
+    400072: Oak_special_Root
+    4300000: Oak_special
+    9500000: //RootNode
+    13700000: Oak_special
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 5cd467a0cbf21b74e9d7faa0de6a3652
+timeCreated: 1452185712
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Oak_special2
+    100004: Oak_special2_Bone_0_End
+    100006: Oak_special2_Bone_0_Start
+    100008: Oak_special2_Bone_10_End
+    100010: Oak_special2_Bone_11_End
+    100012: Oak_special2_Bone_11_Start
+    100014: Oak_special2_Bone_12_End
+    100016: Oak_special2_Bone_12_Start
+    100018: Oak_special2_Bone_13_End
+    100020: Oak_special2_Bone_13_Start
+    100022: Oak_special2_Bone_14_End
+    100024: Oak_special2_Bone_14_Start
+    100026: Oak_special2_Bone_15_End
+    100028: Oak_special2_Bone_15_Start
+    100030: Oak_special2_Bone_16_End
+    100032: Oak_special2_Bone_16_Start
+    100034: Oak_special2_Bone_17_End
+    100036: Oak_special2_Bone_18_End
+    100038: Oak_special2_Bone_18_Start
+    100040: Oak_special2_Bone_19_End
+    100042: Oak_special2_Bone_19_Start
+    100044: Oak_special2_Bone_1_End
+    100046: Oak_special2_Bone_20_End
+    100048: Oak_special2_Bone_20_Start
+    100050: Oak_special2_Bone_21_End
+    100052: Oak_special2_Bone_21_Start
+    100054: Oak_special2_Bone_22_End
+    100056: Oak_special2_Bone_22_Start
+    100058: Oak_special2_Bone_23_End
+    100060: Oak_special2_Bone_23_Start
+    100062: Oak_special2_Bone_2_End
+    100064: Oak_special2_Bone_3_End
+    100066: Oak_special2_Bone_4_End
+    100068: Oak_special2_Bone_4_Start
+    100070: Oak_special2_Bone_5_End
+    100072: Oak_special2_Bone_5_Start
+    100074: Oak_special2_Bone_6_End
+    100076: Oak_special2_Bone_6_Start
+    100078: Oak_special2_Bone_7_End
+    100080: Oak_special2_Bone_7_Start
+    100082: Oak_special2_Bone_8_End
+    100084: Oak_special2_Bone_8_Start
+    100086: Oak_special2_Bone_9_End
+    100088: Oak_special2_Bone_9_Start
+    100090: Oak_special2_Root
+    400000: Oak_special2
+    400002: //RootNode
+    400004: Oak_special2_Bone_0_End
+    400006: Oak_special2_Bone_0_Start
+    400008: Oak_special2_Bone_10_End
+    400010: Oak_special2_Bone_11_End
+    400012: Oak_special2_Bone_11_Start
+    400014: Oak_special2_Bone_12_End
+    400016: Oak_special2_Bone_12_Start
+    400018: Oak_special2_Bone_13_End
+    400020: Oak_special2_Bone_13_Start
+    400022: Oak_special2_Bone_14_End
+    400024: Oak_special2_Bone_14_Start
+    400026: Oak_special2_Bone_15_End
+    400028: Oak_special2_Bone_15_Start
+    400030: Oak_special2_Bone_16_End
+    400032: Oak_special2_Bone_16_Start
+    400034: Oak_special2_Bone_17_End
+    400036: Oak_special2_Bone_18_End
+    400038: Oak_special2_Bone_18_Start
+    400040: Oak_special2_Bone_19_End
+    400042: Oak_special2_Bone_19_Start
+    400044: Oak_special2_Bone_1_End
+    400046: Oak_special2_Bone_20_End
+    400048: Oak_special2_Bone_20_Start
+    400050: Oak_special2_Bone_21_End
+    400052: Oak_special2_Bone_21_Start
+    400054: Oak_special2_Bone_22_End
+    400056: Oak_special2_Bone_22_Start
+    400058: Oak_special2_Bone_23_End
+    400060: Oak_special2_Bone_23_Start
+    400062: Oak_special2_Bone_2_End
+    400064: Oak_special2_Bone_3_End
+    400066: Oak_special2_Bone_4_End
+    400068: Oak_special2_Bone_4_Start
+    400070: Oak_special2_Bone_5_End
+    400072: Oak_special2_Bone_5_Start
+    400074: Oak_special2_Bone_6_End
+    400076: Oak_special2_Bone_6_Start
+    400078: Oak_special2_Bone_7_End
+    400080: Oak_special2_Bone_7_Start
+    400082: Oak_special2_Bone_8_End
+    400084: Oak_special2_Bone_8_Start
+    400086: Oak_special2_Bone_9_End
+    400088: Oak_special2_Bone_9_Start
+    400090: Oak_special2_Root
+    4300000: Oak_special2
+    9500000: //RootNode
+    13700000: Oak_special2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
