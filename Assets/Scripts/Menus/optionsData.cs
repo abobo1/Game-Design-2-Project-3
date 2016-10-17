@@ -5,42 +5,47 @@ using UnityEngine.UI;
 
 public class optionsData : MonoBehaviour {
 
-    //protected int musicVol, sfxVol;
-    public GameObject musicVol, sfxVol;
-    //public string[] example;// = {"name:aaa","class:mage" };
-    protected float[] values;
+    public GameObject musicVol, sfxVol,namePlate;
+    protected float musicValue, sfxValue;
+    protected bool namePlateValue;
 	void Start () {
         //saveData(); 
         //values[0] = musicVol.GetComponent<Slider>().value;
         //values[1] = sfxVol.GetComponent<Slider>().value;
         loadData();  
+        //musicVol.GetComponent<Slider>().value = .5f;
 
     }
 	public void saveData()
     {
-        values[0] = musicVol.GetComponent<Slider>().value;
-        values[1] = sfxVol.GetComponent<Slider>().value;
+        musicValue = musicVol.GetComponent<Slider>().value;
+        sfxValue = sfxVol.GetComponent<Slider>().value;
+        namePlateValue = namePlate.GetComponent<Toggle>().isOn;
         StreamWriter outfile = new StreamWriter("options.dat");
-        for (int k=0;k<values.Length;k++)
-        {
-            outfile.WriteLine(values[k] + "\n");
-            
-            
-        }
+        outfile.WriteLine(musicValue);
+        outfile.WriteLine(sfxValue);
+        outfile.WriteLine(namePlateValue);
+
+
+
+
         outfile.Close();
 
     }
     public void loadData()
     {
         StreamReader inFile = new StreamReader("options.dat");
-        string myline;
         musicVol.GetComponent<Slider>().value = float.Parse(inFile.ReadLine());
+        musicValue = musicVol.GetComponent<Slider>().value;
         sfxVol.GetComponent<Slider>().value = float.Parse(inFile.ReadLine());
+        sfxValue = sfxVol.GetComponent<Slider>().value;
+        namePlate.GetComponent<Toggle>().isOn = bool.Parse(inFile.ReadLine());
+        namePlateValue = namePlate.GetComponent<Toggle>().isOn;
+
         inFile.Close();
     }
 	// Update is called once per frame
 	void Update () {
-        //example[0] = music.GetComponent<Slider>().value
 	
 	}
 }

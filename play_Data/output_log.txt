@@ -8,27 +8,25 @@ Direct3D:
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.185 seconds
+- Completed reload, in  0.310 seconds
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.766357 ms
-FormatException: Invalid format.
-  at System.Double.Parse (System.String s, NumberStyles style, IFormatProvider provider) [0x00000] in <filename unknown>:0 
-  at System.Single.Parse (System.String s) [0x00000] in <filename unknown>:0 
-  at optionsData.loadData () [0x00000] in <filename unknown>:0 
-  at optionsData.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+UnloadTime: 0.991304 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1c54 -> priority: 1 
+  Thread -> id: 2b5c -> priority: 1 
