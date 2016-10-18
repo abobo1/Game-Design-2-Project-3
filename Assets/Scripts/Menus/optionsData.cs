@@ -8,12 +8,9 @@ public class optionsData : MonoBehaviour {
     public GameObject musicVol, sfxVol,namePlate;
     protected float musicValue, sfxValue;
     protected bool namePlateValue;
+    protected string ipAddress = "localhost";
 	void Start () {
-        //saveData(); 
-        //values[0] = musicVol.GetComponent<Slider>().value;
-        //values[1] = sfxVol.GetComponent<Slider>().value;
         loadData();  
-        //musicVol.GetComponent<Slider>().value = .5f;
 
     }
 	public void saveData()
@@ -41,10 +38,27 @@ public class optionsData : MonoBehaviour {
         sfxValue = sfxVol.GetComponent<Slider>().value;
         namePlate.GetComponent<Toggle>().isOn = bool.Parse(inFile.ReadLine());
         namePlateValue = namePlate.GetComponent<Toggle>().isOn;
+        //ipAddress = inFile.ReadLine();
 
         inFile.Close();
     }
 	// Update is called once per frame
+    public float getMusicVal()
+    {
+        return musicValue;
+    }
+    public float getSfxVal()
+    {
+        return sfxValue;
+    }
+    public bool getNamePlateVal()
+    {
+        return namePlateValue;
+    }
+    public string getIpAddress()
+    {
+        return ipAddress;
+    }
 	void Update () {
 	
 	}

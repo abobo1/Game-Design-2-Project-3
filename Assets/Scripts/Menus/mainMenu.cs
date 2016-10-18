@@ -50,8 +50,9 @@ public class mainMenu : MonoBehaviour {
         else if (name == "Play")
         {
             Application.LoadLevel(1);
-            //GetComponent<mainMenu>().enabled = false;
-            //GetComponetn<OptionsData().enabled = false;
+            //GetComponent<offlineMan>().spawnPlayer(playerId,0);
+            GetComponent<mainMenu>().enabled = false;
+            GetComponent<optionsData>().enabled = false;
         }
         
 
