@@ -4,36 +4,38 @@ using System.Collections.Generic;
 
 public class Quests {
 
-    private List<Quest> allQuests = new List<Quest>(new Quest[] {
-        new Quest("Test1", "This is quest #1", 150, false),
-        new Quest("Test2", "This is quest #2", 300, false)
-    });
+    private Hashtable allQuests = new Hashtable();
 
-    public String GetQuestName(int questNumber) {
-        return allQuests[questNumber].name;
+    public Quests() {
+        allQuests.Add("Quest1", new Quest("Test1", "This is quest #1", 150, false));
+        allQuests.Add("Quest2", new Quest("Test2", "This is quest #2", 300, false));
     }
 
-    public String GetQuestDescription(int questNumber) {
-        return allQuests[questNumber].description;
+    public String GetQuestName(String questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.name;
     }
 
-    public int GetQuestExperience(int questNumber) {
-        return allQuests[questNumber].experience;
+    public String GetQuestDescription(String questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.description;
     }
 
-    public bool IsQuestCompleted(int questNumber) {
-        return allQuests[questNumber].completed;
+    public int GetQuestExperience(String questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.experience;
     }
 
-    public void CompleteQuest(int questNumber) {
-        allQuests[questNumber].completed = true;
+    public bool IsQuestCompleted(String questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.completed;
     }
 
-
-
-
-
-
+    public void CompleteQuest(String questName) {
+        Quest x = allQuests[questName] as Quest;
+        x.completed = true;
+        allQuests[questName] = x;
+    }
 
     private class Quest {
 
