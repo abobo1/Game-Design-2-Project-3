@@ -9,7 +9,7 @@ public class offlineMan : MonoBehaviour {
 
     void Update()
     {
-        if (GetComponent<netMan>().gameMode == 1)
+        if ( GetComponent<netMan>().gameMode == 1)
         {
             GetComponent<offlineMan>().enabled = false;
             return;
