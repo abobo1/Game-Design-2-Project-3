@@ -4,20 +4,19 @@ using System;
 
 public class NPCTalk : MonoBehaviour {
 
-    public String questName;
+    public string questName;
+    private string questDescription;
 
     private int talkingRegisterDistance = 5;
+
+    private Quests allQuests = new Quests();
 
     private GameObject player;
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+        questDescription = allQuests.GetQuestDescription(questName);
 	}
 
     void OnMouseOver() {
@@ -25,6 +24,11 @@ public class NPCTalk : MonoBehaviour {
             print("Right click on this object");
             if (Vector3.Distance(this.transform.position, player.transform.position) < talkingRegisterDistance) {
                 print("You are close enough");
+                if (!player.GetComponent<PlayerQuests>().IsQuestCompleted(questName)) {
+                    print("Quest is not completed yet");
+                } else {
+                    print("Quest is completed");
+                }
             }
         }
     }
