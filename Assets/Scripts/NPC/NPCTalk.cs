@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class NPCTalk : MonoBehaviour {
 
@@ -13,13 +14,18 @@ public class NPCTalk : MonoBehaviour {
 
     private GameObject player;
     private GameObject questMark;
+    private GameObject questPanel;
+    public Text questTitleText;
+    public Text questDescriptionText;
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         questMark = GameObject.Find("QuestMark");
+        questPanel = GameObject.Find("QuestPanel");
+        questPanel.SetActive(false);
         questDescription = allQuests.GetQuestDescription(questName);
-	}
+    }
 
     void Update() {
         //proof of concept
@@ -35,6 +41,9 @@ public class NPCTalk : MonoBehaviour {
                 print("You are close enough");
                 if (!IsQuestCompleted()) {
                     print("Quest is not completed yet");
+                    questTitleText.text = questName;
+                    questDescriptionText.text = questDescription;
+                    questPanel.SetActive(true);
                 } else {
                     print("Quest is completed");
                 }
