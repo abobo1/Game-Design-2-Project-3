@@ -7,8 +7,8 @@ public class Quests {
     private Hashtable allQuests = new Hashtable();
 
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", 150, false, new ArrayList(), 1));
-        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", 300, false, new ArrayList(), 1));
+        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", 150, false, new ArrayList(), 1,false));
+        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", 300, false, new ArrayList(), 1,false));
     }
 
     public string GetQuestName(string questName) {
@@ -37,6 +37,12 @@ public class Quests {
         allQuests[questName] = x;
     }
 
+    public void setOnQuest(string name,bool value)
+    {
+        Quest quest = allQuests[name] as Quest;
+        quest.onQuest = value;
+    }
+
     private class Quest {
 
         public string name;
@@ -45,14 +51,16 @@ public class Quests {
         public bool completed;
         public ArrayList itemsGiven;
         public int levelRequired;
+        public bool onQuest;
 
-        public Quest(string name, string description, int experience, bool completed, ArrayList itemsGiven, int levelRequired) {
+        public Quest(string name, string description, int experience, bool completed, ArrayList itemsGiven, int levelRequired,bool onQuest) {
             this.name = name;
             this.description = description;
             this.experience = experience;
             this.completed = completed;
             this.itemsGiven = itemsGiven;
             this.levelRequired = levelRequired;
+            this.onQuest = onQuest;
         }
     }
 

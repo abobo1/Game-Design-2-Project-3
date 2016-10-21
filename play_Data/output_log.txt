@@ -20,13 +20,13 @@ Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Dat
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.372 seconds
+- Completed reload, in  0.427 seconds
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Steven\Source\Repos\Game-Design-2-Project-3\play_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.086244 ms
+UnloadTime: 0.798004 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1a58 -> priority: 1 
+  Thread -> id: 1fc0 -> priority: 1 
