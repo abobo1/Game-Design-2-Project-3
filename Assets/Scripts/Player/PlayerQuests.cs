@@ -19,7 +19,7 @@ public class PlayerQuests : MonoBehaviour {
         //    CompleteQuest("Quest1");
         //}
     }
-
+    public 
     public bool IsQuestCompleted(string questName) {
         return playerQuests.IsQuestCompleted(questName);
     }
