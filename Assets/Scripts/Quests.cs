@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Quests {
-
+    
     private Hashtable allQuests = new Hashtable();
 
     public Quests() {
