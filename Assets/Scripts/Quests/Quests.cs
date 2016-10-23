@@ -8,8 +8,8 @@ public class Quests {
 
     public enum Status {ACTIVE, INACTIVE, COMPLETED};
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", 150, false, new ArrayList(), 1,Status.INACTIVE));
-        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", 300, false, new ArrayList(), 1,Status.INACTIVE));
+        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", 150, new ArrayList(), 1,Status.INACTIVE));
+        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", 300, new ArrayList(), 1,Status.INACTIVE));
     }
 
     public string GetQuestName(string questName) {
@@ -29,33 +29,59 @@ public class Quests {
 
     public bool IsQuestCompleted(string questName) {
         Quest x = allQuests[questName] as Quest;
-        return x.completed;
+        if (x.questStatus == Status.COMPLETED) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void CompleteQuest(string questName) {
         Quest x = allQuests[questName] as Quest;
-        x.completed = true;
+        x.questStatus = Status.COMPLETED;
         allQuests[questName] = x;
     }
 
-    public void setStatus(string name,Status questStatus)
+    public void SetQuestStatus(string name,Status questStatus)
     {
         Quest quest = allQuests[name] as Quest;
         quest.questStatus = questStatus;
+        allQuests[name] = quest;
     }
     
-    public void setStatus(string status) {
-        Quest quest = allQuests[name] as Quest;
-        switch(status) {
-            case 'INACTIVE':
+    public void SetQuestStatus(string questName, string status) {
+        Quest quest = allQuests[questName] as Quest;
+        switch (status) {
+            case "INACTIVE":
+            case "Inactive":
+            case "inactive":
                 quest.questStatus = Status.INACTIVE;
                 break;
-            case 'ACTIVE':
+            case "ACTIVE":
+            case "Active":
+            case "active":
                 quest.questStatus = Status.ACTIVE;
                 break;
-            case 'COMPLETED':
+            case "COMPLETED":
+            case "Completed":
+            case "completed":
                 quest.questStatus = Status.COMPLETED;
                 break;
+        }
+        allQuests[questName] = quest;
+    }
+
+    public string GetQuestStatus(string questName) {
+        Quest quest = allQuests[questName] as Quest;
+        switch (quest.questStatus) {
+            case Status.ACTIVE:
+                return "Active";
+            case Status.INACTIVE:
+                return "Inactive";
+            case Status.COMPLETED:
+                return "Completed";
+            default:
+                return "Error";
         }
     }
 
@@ -64,16 +90,14 @@ public class Quests {
         public string name;
         public string description;
         public int experience;
-        public bool completed;
         public ArrayList itemsGiven;
         public int levelRequired;
         public Status questStatus;
 
-        public Quest(string name, string description, int experience, bool completed, ArrayList itemsGiven, int levelRequired,Status questStatus) {
+        public Quest(string name, string description, int experience, ArrayList itemsGiven, int levelRequired,Status questStatus) {
             this.name = name;
             this.description = description;
             this.experience = experience;
-            this.completed = completed;
             this.itemsGiven = itemsGiven;
             this.levelRequired = levelRequired;
             this.questStatus = questStatus;
