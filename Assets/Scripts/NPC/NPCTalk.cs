@@ -51,9 +51,6 @@ public class NPCTalk : MonoBehaviour {
         }
     }
 
-    public void AcceptQuest() {
-        player.GetComponent<PlayerQuests>().SetQuestStatus(questName, "Active");
-    }
 
     private bool IsQuestCompleted() {
         return player.GetComponent<PlayerQuests>().IsQuestCompleted(questName);

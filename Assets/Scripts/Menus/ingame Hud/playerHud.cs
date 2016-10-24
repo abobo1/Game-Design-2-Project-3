@@ -5,7 +5,7 @@ public class playerHud : MonoBehaviour {
     public GameObject[] menus;
 	public void openMenu(int menuId)
     {
-        closeAllMenu();
+        closeAllMenu(); 
         menus[menuId].SetActive(true);
          
             

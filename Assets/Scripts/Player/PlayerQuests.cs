@@ -16,14 +16,13 @@ public class PlayerQuests : MonoBehaviour {
 
    
     void Update() {
-        count++;
-        if (count > 300) {
-            CompleteQuest("Quest1");
-        }
+        //count++;
+        //if (count > 300) {
+        //    CompleteQuest("Quest1");
+        //}
     }
-
-    public void SetQuestStatus(string name, string status) {
-        playerQuests.SetQuestStatus(name, status);
+    public void setQestStatus(string name) {
+        playerQuests.setStatus(name);
     }
     
     public bool IsQuestCompleted(string questName) {

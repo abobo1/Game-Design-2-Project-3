@@ -5,8 +5,8 @@ using System.Collections;
 public class mainMenu : MonoBehaviour {
     //set max player number in changePlayer()
     public GameObject mainButtons,optionButtons,gameMenu,charMenu,charmenuInfo,nameObj;
-    public GameObject[] charProps;
-    public string playerName;
+    public GameObject[] charProps,charPropPrefab;
+    public string playerName; 
     public int playerId = 0;
 
     void Start()
@@ -74,8 +74,12 @@ public class mainMenu : MonoBehaviour {
 
         //set prop
         for (int k = 0; k < charProps.Length; k++)
+        {
             charProps[k].SetActive(false);
+            charPropPrefab[k].SetActive(false);
+        }
         charProps[playerId].SetActive(true);
+        charPropPrefab[playerId].SetActive(true);
     }
 
 	
