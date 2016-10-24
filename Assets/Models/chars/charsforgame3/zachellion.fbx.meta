@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: b8693074dd5dae64e82008a1fdba0757
+timeCreated: 1477320918
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Beards
+    100002: Body.002
+    100004: Bottoms.001
+    100006: Camera
+    100008: challenger_hands_Untitled.022
+    100010: challenger_sholders.001_Untitled.026
+    100012: challenger_sholders_Untitled.021
+    100014: challenger_sword_holder.001_Untitled.024
+    100016: challenger_sword_holder.002_Untitled.027
+    100018: challenger_sword_holder_Untitled.023
+    100020: Eyelashes.001
+    100022: Eyes.002
+    100024: Gloves
+    100026: Hair
+    100028: Hair.001
+    100030: Shoes.001
+    100032: Tops.001
+    100034: WK_HeavyIntantry.001_Untitled.025
+    100036: WK_HeavyIntantry_Untitled.020
+    100038: //RootNode
+    400000: Beards
+    400002: Body.002
+    400004: Bottoms.001
+    400006: Camera
+    400008: challenger_hands_Untitled.022
+    400010: challenger_sholders.001_Untitled.026
+    400012: challenger_sholders_Untitled.021
+    400014: challenger_sword_holder.001_Untitled.024
+    400016: challenger_sword_holder.002_Untitled.027
+    400018: challenger_sword_holder_Untitled.023
+    400020: Eyelashes.001
+    400022: Eyes.002
+    400024: Gloves
+    400026: Hair
+    400028: Hair.001
+    400030: Shoes.001
+    400032: Tops.001
+    400034: WK_HeavyIntantry.001_Untitled.025
+    400036: WK_HeavyIntantry_Untitled.020
+    400038: //RootNode
+    2300000: Beards
+    2300002: Body.002
+    2300004: Bottoms.001
+    2300006: challenger_hands_Untitled.022
+    2300008: challenger_sholders.001_Untitled.026
+    2300010: challenger_sholders_Untitled.021
+    2300012: challenger_sword_holder.001_Untitled.024
+    2300014: challenger_sword_holder.002_Untitled.027
+    2300016: challenger_sword_holder_Untitled.023
+    2300018: Eyelashes.001
+    2300020: Eyes.002
+    2300022: Gloves
+    2300024: Hair
+    2300026: Hair.001
+    2300028: Shoes.001
+    2300030: Tops.001
+    2300032: WK_HeavyIntantry.001_Untitled.025
+    2300034: WK_HeavyIntantry_Untitled.020
+    3300000: Beards
+    3300002: Body.002
+    3300004: Bottoms.001
+    3300006: challenger_hands_Untitled.022
+    3300008: challenger_sholders.001_Untitled.026
+    3300010: challenger_sholders_Untitled.021
+    3300012: challenger_sword_holder.001_Untitled.024
+    3300014: challenger_sword_holder.002_Untitled.027
+    3300016: challenger_sword_holder_Untitled.023
+    3300018: Eyelashes.001
+    3300020: Eyes.002
+    3300022: Gloves
+    3300024: Hair
+    3300026: Hair.001
+    3300028: Shoes.001
+    3300030: Tops.001
+    3300032: WK_HeavyIntantry.001_Untitled.025
+    3300034: WK_HeavyIntantry_Untitled.020
+    4300000: Shoes.001
+    4300002: Beards
+    4300004: Eyelashes.001
+    4300006: Hair
+    4300008: Eyes.002
+    4300010: Gloves
+    4300012: Body.002
+    4300014: Bottoms.001
+    4300016: challenger_sholders_Untitled.021
+    4300018: WK_HeavyIntantry.001_Untitled.025
+    4300020: challenger_hands_Untitled.022
+    4300022: WK_HeavyIntantry_Untitled.020
+    4300024: challenger_sholders.001_Untitled.026
+    4300026: Tops.001
+    4300028: challenger_sword_holder.001_Untitled.024
+    4300030: challenger_sword_holder_Untitled.023
+    4300032: challenger_sword_holder.002_Untitled.027
+    4300034: Hair.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
