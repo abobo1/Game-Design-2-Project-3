@@ -8,8 +8,8 @@ public class Quests {
 
     public enum Status {ACTIVE, INACTIVE, COMPLETED};
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", 150, false, new ArrayList(), 1,Status.INACTIVE));
-        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", 300, false, new ArrayList(), 1,Status.INACTIVE));
+        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1","You finished quest 1", 150, false, new ArrayList(), 1,Status.INACTIVE));
+        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2","You finished quest 2", 300, false, new ArrayList(), 1,Status.INACTIVE));
     }
 
     public string GetQuestName(string questName) {
@@ -60,20 +60,26 @@ public class Quests {
         }
         */
     }
+    public string getReply(string questName)
+    {
+        Quest x = allQuests[questName] as Quest;
+        return x.reply;
+    }
 
     private class Quest {
 
         public string name;
-        public string description;
+        public string description,reply;
         public int experience;
         public bool completed;
         public ArrayList itemsGiven;
         public int levelRequired;
         public Status questStatus;
 
-        public Quest(string name, string description, int experience, bool completed, ArrayList itemsGiven, int levelRequired,Status questStatus) {
+        public Quest(string name, string description,string reply, int experience, bool completed, ArrayList itemsGiven, int levelRequired,Status questStatus) {
             this.name = name;
             this.description = description;
+            this.reply = reply;
             this.experience = experience;
             this.completed = completed;
             this.itemsGiven = itemsGiven;
