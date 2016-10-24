@@ -21,11 +21,13 @@ public class PlayerQuests : MonoBehaviour {
         //    CompleteQuest("Quest1");
         //}
     }
-    public void setQestStatus(string name) {
-        playerQuests.setStatus(name);
+
+
+    public void SetQuestStatus(string name, string status) {
+        playerQuests.SetQuestStatus(name, status);
     }
-    
-    public bool IsQuestCompleted(string questName) {
+
+public bool IsQuestCompleted(string questName) {
         return playerQuests.IsQuestCompleted(questName);
     }
 
