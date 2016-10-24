@@ -14,7 +14,7 @@ public class NPCTalk : MonoBehaviour {
 
     private GameObject player;
     private GameObject questMark;
-    private GameObject questPanel;
+    private GameObject questPanel,replyPanel;
     public Text questTitleText;
     public Text questDescriptionText;
 
@@ -40,11 +40,13 @@ public class NPCTalk : MonoBehaviour {
             if (Vector3.Distance(this.transform.position, player.transform.position) < talkingRegisterDistance) {
                 print("You are close enough");
                 if (!IsQuestCompleted()) {
+                    //if (player.GetComponent<PlayerQuests>().)
                     print("Quest is not completed yet");
                     questTitleText.text = questName;
                     questDescriptionText.text = questDescription;
                     questPanel.SetActive(true);
-                } else {
+                }
+                else {
                     print("Quest is completed");
                 }
             }
