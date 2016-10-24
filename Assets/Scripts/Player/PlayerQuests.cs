@@ -26,6 +26,14 @@ public class PlayerQuests : MonoBehaviour {
     public void SetQuestStatus(string name, string status) {
         playerQuests.SetQuestStatus(name, status);
     }
+    public string GetQuestStatus(string name)
+    {
+        return playerQuests.GetQuestStatus(name);
+    }
+    public string GetReply(string name)
+    {
+        return playerQuests.getReply(name);
+    }
 
 public bool IsQuestCompleted(string questName) {
         return playerQuests.IsQuestCompleted(questName);

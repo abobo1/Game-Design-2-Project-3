@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NPCTalk : MonoBehaviour {
 
     public string questName;
-    private string questDescription;
+    private string questDescription,replyDescription;
 
     private int talkingRegisterDistance = 5;
 
@@ -17,14 +17,18 @@ public class NPCTalk : MonoBehaviour {
     private GameObject questPanel,replyPanel;
     public Text questTitleText;
     public Text questDescriptionText;
+    public Text replyText;
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         questMark = GameObject.Find("QuestMark");
         questPanel = GameObject.Find("QuestPanel");
+        replyPanel = GameObject.Find("ReplyPanel");
         questPanel.SetActive(false);
+        replyPanel.SetActive(false);
         questDescription = allQuests.GetQuestDescription(questName);
+        replyDescription = allQuests.getReply(questName);
     }
 
     void Update() {
@@ -39,12 +43,26 @@ public class NPCTalk : MonoBehaviour {
             print("Right click on this object");
             if (Vector3.Distance(this.transform.position, player.transform.position) < talkingRegisterDistance) {
                 print("You are close enough");
+
+                //test
+
+                Debug.Log(player.GetComponent<PlayerQuests>().GetQuestStatus(questName));
+                //end test
                 if (!IsQuestCompleted()) {
-                    //if (player.GetComponent<PlayerQuests>().)
-                    print("Quest is not completed yet");
-                    questTitleText.text = questName;
-                    questDescriptionText.text = questDescription;
-                    questPanel.SetActive(true);
+                    if (player.GetComponent<PlayerQuests>().GetQuestStatus(questName) != "Active")
+                    {
+                        print("Quest is not completed yet");
+                        questTitleText.text = questName;
+                        questDescriptionText.text = questDescription;
+                        replyText.text = questDescription;
+                        //replyText.text = player.GetComponent<PlayerQuests>().GetReply(questName);
+                        questPanel.SetActive(true);
+                    }
+                    else
+                    {
+                        questPanel.SetActive(false);
+                        replyPanel.SetActive(true);
+                    }
                 }
                 else {
                     print("Quest is completed");
