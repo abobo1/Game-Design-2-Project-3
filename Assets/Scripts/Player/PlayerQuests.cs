@@ -28,28 +28,18 @@ public class PlayerQuests : MonoBehaviour {
     public void SetQuestStatus(string name, string status) {
         playerQuests.SetQuestStatus(name, status);
     }
-    public string GetQuestStatus(string name)
-    {
+
+    public string GetQuestStatus(string name) {
         return playerQuests.GetQuestStatus(name);
     }
-    public string GetReply(string name)
-    {
-        return playerQuests.getReply(name);
-    }
 
-public bool IsQuestCompleted(string questName) {
+    public bool IsQuestCompleted(string questName) {
         return playerQuests.IsQuestCompleted(questName);
     }
 
     public void CompleteQuest(string questName) {
         playerQuests.CompleteQuest(questName);
-    }
-    public ArrayList GetItemsGiven(string questName)
-    {
-        return playerQuests.GetItemsGiven(questName);
-    }
-    public int GetExp(string questName)
-    {
-        return playerQuests.GetExp(questName);
+        //Take items from this quest out of inventory
+        //Get reward for this quest (XP and Items)
     }
 }

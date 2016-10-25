@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Quests {
     
@@ -8,8 +9,10 @@ public class Quests {
 
     public enum Status {ACTIVE, INACTIVE, COMPLETED};
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1","You finished quest 1", 150, new ArrayList(), 1,Status.INACTIVE));
-        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2","You finished quest 2", 300, new ArrayList(), 1,Status.INACTIVE));
+        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", "Go do quest 1", "You finished quest 1", 150, new ArrayList(), Status.INACTIVE,
+                                            0, "", 0, ""));
+        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", "Go do quest 2", "You finished quest 2", 300, new ArrayList(), Status.INACTIVE,
+                                            0, "", 0, "Quest1"));
     }
 
     public string GetQuestName(string questName) {
@@ -31,9 +34,9 @@ public class Quests {
         Quest x = allQuests[questName] as Quest;
         if (x.questStatus == Status.COMPLETED) {
             return true;
-            } else {
-                return false;
-            }
+        } else {
+            return false;
+        }
     }
 
     public void CompleteQuest(string questName) {
@@ -85,39 +88,73 @@ public class Quests {
         }
     }
 
-    public string getReply(string questName)
-    {
+    public string GetReply(string questName) {
         Quest x = allQuests[questName] as Quest;
         return x.reply;
     }
-    public ArrayList GetItemsGiven(string questName)
-    {
+
+    public string GetFinishedReply(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.finished;
+    }
+
+    public ArrayList GetItemsGiven(string questName) {
         Quest x = allQuests[questName] as Quest;
         return x.itemsGiven;
     }
-    public int GetExp(string questName)
-    {
+
+    public int GetExp(string questName) {
         Quest x = allQuests[questName] as Quest;
         return x.experience;
+    }
+
+    public int GetNumberOfItemsNeeded(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.numberTurnInNeeded;
+    }
+
+    public string GetItemNeeded(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.itemToTurnIn;
+    }
+
+    public int GetLevelRequired(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.requiredLevel;
+    }
+
+    public string GetQuestRequired(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.requiredQuestCompleted;
     }
 
     private class Quest {
 
         public string name;
-        public string description,reply;
+        public string description;
+        public string reply;
+        public string finished;
         public int experience;
         public ArrayList itemsGiven;
-        public int levelRequired;
         public Status questStatus;
+        public int numberTurnInNeeded;
+        public string itemToTurnIn;
+        public int requiredLevel;
+        public string requiredQuestCompleted;
 
-        public Quest(string name, string description,string reply, int experience, ArrayList itemsGiven, int levelRequired,Status questStatus) {
+        public Quest(string name, string description, string reply, string finished, int experience, ArrayList itemsGiven, Status questStatus,
+                        int numberTurnInNeeded, string itemToTurnIn, int requiredLevel, string requiredQuestCompleted) {
             this.name = name;
             this.description = description;
             this.reply = reply;
+            this.finished = finished;
             this.experience = experience;
             this.itemsGiven = itemsGiven;
-            this.levelRequired = levelRequired;
             this.questStatus = questStatus;
+            this.numberTurnInNeeded = numberTurnInNeeded;
+            this.itemToTurnIn = itemToTurnIn;
+            this.requiredLevel = requiredLevel;
+            this.requiredQuestCompleted = requiredQuestCompleted;
         }
     }
 

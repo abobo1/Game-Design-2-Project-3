@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class NPCTurnIn : MonoBehaviour
 {
+
+    private Quests allQuests = new Quests();
+
     public string questName,nextQuestName;
     private GameObject player;
     public GameObject NPCQuestGiver,nextNPCQuestGiver;
@@ -29,9 +32,9 @@ public class NPCTurnIn : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && player.GetComponent<PlayerQuests>().GetQuestStatus(questName) == "Active" && questName == NPCQuestGiver.GetComponent<NPCTalk>().questName && !nextNPCQuestGiver.GetComponent<NPCTalk>().questMark)
         {
             player.GetComponent<PlayerQuests>().CompleteQuest(questName);
-            replyText.text = player.GetComponent<PlayerQuests>().GetReply(questName);
-            ArrayList items = player.GetComponent<PlayerQuests>().GetItemsGiven(questName);//use to show what items we get
-            replyText.text += "\n\nExperience Given: " + player.GetComponent<PlayerQuests>().GetExp(questName) ;
+            replyText.text = allQuests.GetReply(questName);
+            ArrayList items = allQuests.GetItemsGiven(questName);//use to show what items we get
+            replyText.text += "\n\nExperience Given: " + allQuests.GetExp(questName) ;
             questMark.SetActive(false);
             replyPanel.SetActive(true);
             NPCQuestGiver.GetComponent<NPCTalk>().enabled = false;
