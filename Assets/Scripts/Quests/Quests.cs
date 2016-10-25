@@ -90,6 +90,16 @@ public class Quests {
         Quest x = allQuests[questName] as Quest;
         return x.reply;
     }
+    public ArrayList GetItemsGiven(string questName)
+    {
+        Quest x = allQuests[questName] as Quest;
+        return x.itemsGiven;
+    }
+    public int GetExp(string questName)
+    {
+        Quest x = allQuests[questName] as Quest;
+        return x.experience;
+    }
 
     private class Quest {
 
