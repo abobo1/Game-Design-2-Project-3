@@ -11,7 +11,9 @@ public class PlayerQuests : MonoBehaviour {
     //Just here to quickly complete the quest. For testing
     void Start()
     {
-      
+        GameObject.Find("QuestPanel").SetActive(false);
+        GameObject.Find("ReplyPanel").SetActive(false);
+
     }
 
    
@@ -41,5 +43,13 @@ public bool IsQuestCompleted(string questName) {
 
     public void CompleteQuest(string questName) {
         playerQuests.CompleteQuest(questName);
+    }
+    public ArrayList GetItemsGiven(string questName)
+    {
+        return playerQuests.GetItemsGiven(questName);
+    }
+    public int GetExp(string questName)
+    {
+        return playerQuests.GetExp(questName);
     }
 }
