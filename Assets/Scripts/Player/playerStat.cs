@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class playerStat : MonoBehaviour {
 
@@ -8,10 +9,11 @@ public class playerStat : MonoBehaviour {
     private int playerId, playerLevel, skillPoints,skillPointMax;
     private List<Items> playerInv;
     private List<Spells> playerSpells;
+    public GameObject playerHud;
 
     public playerStat()
     {
-        playerId = GameObject.Find("GameController").GetComponent<mainMenu>().playerId;
+        
         playerLevel = 1;
         skillPoints = 0;
         skillPointMax = 0;
@@ -22,11 +24,16 @@ public class playerStat : MonoBehaviour {
         { intellect = 20; strength = 5;}
         else
         { intellect = 5;strength = 20; }
-
+            
     }
 
     void Start() {
-
+        playerHud = (GameObject)Instantiate(playerHud);
+        playerHud.name = "spellBar";
+        //playerId = GameObject.Find("GameController").GetComponent<mainMenu>().playerId;
+        playerId = 0;//test only
+        Spells playerSpells = new Spells(playerId);
+        Debug.Log(playerSpells.spellList[playerSpells.totalSpells-1].cost);
     }
     public float getHpCurrent(){
         return hpCurrent;
