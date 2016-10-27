@@ -31,7 +31,7 @@ public class Spells : MonoBehaviour
             spells.Add(spellList);
         }
     }
-    void setSpell(spell newSpell, int playerId)
+    void setSpell(spell newSpell, int playerId)//add all character spells here
     {
         if (playerId == 0)
         {
