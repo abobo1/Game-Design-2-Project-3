@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class playerStat : MonoBehaviour {
 
     private float hpCurrent, hpMax, mpCurrent, mpMax, intellect, spirit, stamina, strength;
-    private int playerId, playerLevel, skillPoints,skillPointMax;
+    private int playerLevel, skillPoints,skillPointMax;
+    public int playerId;
     private List<Items> playerInv;
     private List<Spells> playerSpells;
     public GameObject playerHud;
@@ -30,10 +31,14 @@ public class playerStat : MonoBehaviour {
     void Start() {
         playerHud = (GameObject)Instantiate(playerHud);
         playerHud.name = "spellBar";
+        playerHud.GetComponent<playerHud>().playerId = playerId;
         //playerId = GameObject.Find("GameController").GetComponent<mainMenu>().playerId;
-        playerId = 0;//test only
-        Spells playerSpells = new Spells(playerId);
-        Debug.Log(playerSpells.spellList[playerSpells.totalSpells-1].cost);
+        //playerId = 0;//test only
+        Spells playerSpells = new Spells(playerId);//test only set back to playerId
+        //Items playerInv = new Items(true);
+        playerInv playerINV = new playerInv();
+        Items itemList = new Items(false);
+        //Debug.Log(playerSpells.spellList[playerSpells.totalSpells-1].cost);
     }
     public float getHpCurrent(){
         return hpCurrent;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class playerHud : MonoBehaviour {
     //public GameObject[] menus;
-    public int playerId;
+    public int playerId = -1;
     public List<GameObject> menus;// = new List<GameObject>(){ GameObject.Find("QuestMenu") };
     public List<Image> buttonImages;
     
@@ -15,7 +15,7 @@ public class playerHud : MonoBehaviour {
         menus = new List<GameObject>() { GameObject.Find("QuestMenu"), GameObject.Find("Inventory") , GameObject.Find("Spells") , GameObject.Find("Equip") , GameObject.Find("skillTree") , GameObject.Find("Quest") };
         buttonImages = new List<Image>() { GameObject.Find("ImageButton").GetComponent<Image>(), GameObject.Find("ImageButton1").GetComponent<Image>(), GameObject.Find("ImageButton2").GetComponent<Image>(), GameObject.Find("ImageButton3").GetComponent<Image>(), GameObject.Find("ImageButton4").GetComponent<Image>(), GameObject.Find("ImageButton5").GetComponent<Image>(), GameObject.Find("ImageButton6").GetComponent<Image>(), GameObject.Find("ImageButton7").GetComponent<Image>(), GameObject.Find("ImageButton8").GetComponent<Image>(), GameObject.Find("ImageButton9").GetComponent<Image>() };
         closeAllMenu();
-
+        if (playerId != -1)
         for (int k=0;k<ElissaIcons.Length;k++)
         {
             if (playerId == 0)
