@@ -8,8 +8,9 @@ public class playerHud : MonoBehaviour {
     public int playerId = -1;
     public List<GameObject> menus;// = new List<GameObject>(){ GameObject.Find("QuestMenu") };
     public List<Image> buttonImages;
-    
-    public Sprite[] ElissaIcons,KaliIcons,BauxikIcons,ZachellionIcons,DrakelIcons,ZofeIcons;
+
+
+    public Sprite[] ElissaIcons,KaliIcons,BauxikIcons,ZachellionIcons,DrakelIcons,ZofeIcons,potionIcons;
     public void Start()
     {
         menus = new List<GameObject>() { GameObject.Find("QuestMenu"), GameObject.Find("Inventory") , GameObject.Find("Spells") , GameObject.Find("Equip") , GameObject.Find("skillTree") , GameObject.Find("Quest") };
@@ -30,6 +31,10 @@ public class playerHud : MonoBehaviour {
                 buttonImages[k].sprite = DrakelIcons[k];
             else if (playerId == 5)
                 buttonImages[k].sprite = ZofeIcons[k];
+        }
+        for (int i = 0;i < 3;i++)
+        {
+            buttonImages[i + 7].sprite = potionIcons[i];
         }
     }
 

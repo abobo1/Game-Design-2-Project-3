@@ -17,6 +17,7 @@ public class mainMenu : MonoBehaviour {
             gameMenu.SetActive(false);
             charMenu.SetActive(false);
             charmenuInfo.SetActive(false);
+        changeName();
     }
     public void changeMenu(string name)
     {
@@ -49,6 +50,7 @@ public class mainMenu : MonoBehaviour {
         }
         else if (name == "Play")
         {
+            changeName();
             Application.LoadLevel(1);
             //GetComponent<offlineMan>().spawnPlayer(playerId,0);
             GetComponent<mainMenu>().enabled = false;
@@ -61,7 +63,7 @@ public class mainMenu : MonoBehaviour {
     }
     public void changeName()
     {
-        name = nameObj.GetComponent<Text>().text;
+        playerName = nameObj.GetComponent<Text>().text;
     }
     public void changePlayer(int id)
     {
