@@ -5,130 +5,178 @@ using UnityEngine.UI;
 
 public class NPCTalk : MonoBehaviour {
 
-    public string questName;
+    public string questToGive;
+    public string questToComplete;
     private string questDescription;
     private string replyDescription;
+    private string notFinishedReply;
     private string finishedReply;
 
-    private bool readyToTurnIn;
-    private bool isQuestReady;
+    private bool doIHaveAQuestToGive;
+    private bool doIHaveAQuestToComplete;
 
     private int talkingRegisterDistance = 5;
 
+    private int currentState = 1;
+
     private Quests allQuests = new Quests();
 
+    private PlayerQuests playerQuests;
+
+    private GameObject questMark;
+
     public GameObject player;
-    public GameObject questMark,questMarkPrefab;
-    public GameObject questPanel,replyPanel;
+    public GameObject questMarkPrefab;
+    public GameObject questPanel;
+    public GameObject closeButton;
+    public GameObject acceptButton;
+    public GameObject completeButton;
     public Text questTitleText;
     public Text questDescriptionText;
-    public Text replyText;
 
 	// Use this for initialization
 	void Start () {
         Vector3 pos = new Vector3(gameObject.transform.position.x, 2, gameObject.transform.position.z);
         questMark = (GameObject)Instantiate(questMarkPrefab,gameObject.transform);
         questMark.transform.position = pos;
+        questMark.SetActive(false);
 
-        questDescription = allQuests.GetQuestDescription(questName);
-        replyDescription = allQuests.GetReply(questName);
-        finishedReply = allQuests.GetFinishedReply(questName);
-        readyToTurnIn = false;
-        isQuestReady = false;
+        playerQuests = player.GetComponent<PlayerQuests>();
+
+        questDescription = allQuests.GetQuestDescription(questToGive);
+        replyDescription = allQuests.GetReply(questToGive);
+        notFinishedReply = allQuests.GetNotFinishedReply(questToGive);
+        finishedReply = allQuests.GetFinishedReply(questToGive);
+        doIHaveAQuestToGive = questToGive != "";
+        doIHaveAQuestToComplete = questToComplete != "";
     }
     void OnAwake() {
         questPanel.SetActive(false);
-        replyPanel.SetActive(false);
-    }
-
-    void Update() {
-
     }
 
     void LateUpdate() {
+        string questToGiveStatus = "";
+        string questToCompleteStatus = "";
+        if (doIHaveAQuestToGive) {
+            questToGiveStatus = playerQuests.GetQuestStatus(questToGive);
+        }
+        if (doIHaveAQuestToComplete) {
+            questToCompleteStatus = playerQuests.GetQuestStatus(questToComplete);
+        }
+        bool isQuestReadyToPickUp = IsQuestReadyToPickUp();
+        bool readyToTurnIn = IsQuestReadyToTurnIn();
 
-        if (IsQuestReadyToPickUp()) {
-            isQuestReady = true;
-            if (IsQuestReadyToTurnIn()) {
-                readyToTurnIn = true;
-                //change questMark to show ready to turn in
-            }
+        if (!isQuestReadyToPickUp && !readyToTurnIn && questToGiveStatus.Equals("Inactive") && questToCompleteStatus.Equals("Inactive")) {
+            currentState = 1;
+            questMark.SetActive(false);
+        } else if (isQuestReadyToPickUp && questToGiveStatus.Equals("Inactive")) {
+            currentState = 2;
+            questMark.SetActive(true);
+        } else if (questToGiveStatus.Equals("Active")) {
+            currentState = 3;
+            questMark.SetActive(false);
+        } else if (questToCompleteStatus.Equals("Active") && !readyToTurnIn) {
+            currentState = 4;
+            questMark.SetActive(false);
+        } else if (questToCompleteStatus.Equals("Active") && readyToTurnIn) {
+            currentState = 5;
+            questMark.SetActive(true);
         }
 
     }
 
     void OnMouseOver() {
-        if (Input.GetMouseButtonDown(1) && questMark) {
-            print("Right click on this object");
-            if (Vector3.Distance(this.transform.position, player.transform.position) < talkingRegisterDistance) {
-                print("You are close enough");
-
-                //test
-
-                //Debug.Log(player.GetComponent<PlayerQuests>().GetQuestStatus(questName));
-                //end test
-                if (isQuestReady) {
-                    if (!IsQuestCompleted()) {
-                        if (player.GetComponent<PlayerQuests>().GetQuestStatus(questName) != "Active") {
-                            //Quest not completed and player hasn't accepted it yet
-                            print("Quest is not completed yet");
-                            questTitleText.text = questName;
-                            questDescriptionText.text = questDescription;
-                            questPanel.SetActive(true);
-                            questMark.SetActive(false);
-                        } else {
-                            //Quest not completed but player already accepted it yet
-                            if (readyToTurnIn) {
-                                //Quest not completed, player has requirements for quest to be completed, ready to turn in
-                                questDescriptionText.text = finishedReply;
-                                questPanel.SetActive(true);
-                                replyPanel.SetActive(false);
-                            } else {
-                                //Quest still in progress
-                                replyText.text = replyDescription;
-                                questPanel.SetActive(false);
-                                replyPanel.SetActive(true);
-                            }
-                        }
-                    } else {
-                        //Quest already finished
-                    }
-                } else {
-                    //Quest isn't ready to be picked up. Maybe some form of "no quest at this time"
-                }
+        if (RightClickedOnMeWithinProperDistance()) {
+            print(currentState);
+            if (currentState == 2) {
+                QuestIsReadyToGiveToPlayer();
+            } else if (currentState == 3) {
+                QuestIGaveIsNotCompletedYet();
+            } else if (currentState == 4) {
+                QuestRequirementsNotYetMetToTurnIn();
+            } else if (currentState == 5) {
+                QuestReadyToComplete();
             }
         }
     }
 
-    public void AcceptQuest() {
-        player.GetComponent<PlayerQuests>().SetQuestStatus(questName, "Active");
+    /*5 Possible states for NPC to be in
+     *  1. No quest to give to player. No quest to complete for player
+     *  2. Quest ready to give to player. No quest to complete for player
+     *  3. Quest already given to player, but player hasn't completed quest. No quest to complete for player
+     *  4. No quest to give to player. NPC has quest to complete for player, but player hasn't filled requirements yet for quest
+     *  5. No quest to give to player. Quest is ready to complete
+     */
+
+    private void QuestIsReadyToGiveToPlayer() { //State 2
+        print("State 2");
+        questTitleText.text = questToGive;
+        questDescriptionText.text = questDescription;
+        questPanel.SetActive(true);
+        closeButton.SetActive(true);
+        acceptButton.SetActive(true);
+        completeButton.SetActive(false);
     }
 
+    private void QuestIGaveIsNotCompletedYet() { //State 3
+        print("State 3");
+        questTitleText.text = questToGive;
+        questDescriptionText.text = replyDescription;
+        questPanel.SetActive(true);
+        closeButton.SetActive(true);
+        acceptButton.SetActive(false);
+        completeButton.SetActive(false);
+    }
+
+    private void QuestRequirementsNotYetMetToTurnIn() { //State 4
+        print("State 4");
+        questTitleText.text = questToComplete;
+        questDescriptionText.text = notFinishedReply;
+        questPanel.SetActive(true);
+        closeButton.SetActive(true);
+        acceptButton.SetActive(false);
+        completeButton.SetActive(false);
+    }
+
+    private void QuestReadyToComplete() { //State 5
+        print("State 5");
+        questTitleText.text = questToComplete;
+        questDescriptionText.text = finishedReply;
+        questPanel.SetActive(true);
+        closeButton.SetActive(false);
+        acceptButton.SetActive(false);
+        completeButton.SetActive(true);
+    }
+
+    private bool RightClickedOnMeWithinProperDistance() {
+        return Input.GetMouseButtonDown(1) && Vector3.Distance(this.transform.position, player.transform.position) < talkingRegisterDistance;
+    }
 
     private bool IsQuestCompleted() {
-        return player.GetComponent<PlayerQuests>().IsQuestCompleted(questName);
+        return playerQuests.IsQuestCompleted(questToGive);
     }
 
     private bool IsQuestReadyToTurnIn() {
-        int numberNeeded = allQuests.GetNumberOfItemsNeeded(questName);
-        string itemName = allQuests.GetItemNeeded(questName);
+        int numberNeeded = allQuests.GetNumberOfItemsNeeded(questToGive);
+        string itemName = allQuests.GetItemNeeded(questToGive);
         //Check if player has numberNeeded of itemName in inventory
-            //if true
-                //return true
-            //else
-                return false;
+        //if true
+            return true;
+        //else
+                //return false;
     }
 
     private bool IsQuestReadyToPickUp() {
-        int requiredLevel = allQuests.GetLevelRequired(questName);
-        string questRequired = allQuests.GetQuestRequired(questName);
+        int requiredLevel = allQuests.GetLevelRequired(questToGive);
+        string questRequired = allQuests.GetQuestRequired(questToGive);
+        bool questInactive = playerQuests.GetQuestStatus(questToGive).Equals("Inactive");
         bool requiredQuestCompleted = true;
         if (questRequired != "") {
-            requiredQuestCompleted = player.GetComponent<PlayerQuests>().IsQuestCompleted(questRequired);
+            requiredQuestCompleted = playerQuests.IsQuestCompleted(questRequired);
         }
-        //if player level >= requiredLevel && requiredQuestCompleted
+        if (requiredQuestCompleted && questInactive) { //Check here if player level is high enough
             return true;
-        //else
-            //return false
+        }
+        return false;
     }
 }
