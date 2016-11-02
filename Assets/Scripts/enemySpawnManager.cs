@@ -3,12 +3,12 @@ using System.Collections;
 
 public class enemySpawnManager : MonoBehaviour {
 
-    public GameObject enemy;
-    public int spawnAmount;
+    public GameObject[] enemy;
     public int distance;
     public float spawnTime; 
     public Transform[] spawnPoints;
     public Transform player;
+    private bool spawned = false;
 
     // Use this for initialization
     void Start()
@@ -22,10 +22,14 @@ public class enemySpawnManager : MonoBehaviour {
         {
             GameObject[] array;
             array = GameObject.FindGameObjectsWithTag("Enemy");
-            if (spawnAmount > array.Length)
+            if(!spawned)
             {
-                int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-                Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                for (int i = 0; i < spawnPoints.Length; i++)
+                {
+                    int enemyIndex = Random.Range(0, enemy.Length);
+                    Instantiate(enemy[enemyIndex], spawnPoints[i].position, spawnPoints[i].rotation);
+                }
+                spawned = true;
             }
         }
     }
