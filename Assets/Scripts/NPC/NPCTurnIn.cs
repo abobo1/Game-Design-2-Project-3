@@ -18,7 +18,7 @@ public class NPCTurnIn : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        questName = NPCQuestGiver.GetComponent<NPCTalk>().questName;
+        questName = NPCQuestGiver.GetComponent<NPCTalk>().questToGive;
         nextNPCQuestGiver.AddComponent<NPCTalk>().enabled = false;
     }
 
@@ -29,29 +29,28 @@ public class NPCTurnIn : MonoBehaviour
     }
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1) && player.GetComponent<PlayerQuests>().GetQuestStatus(questName) == "Active" && questName == NPCQuestGiver.GetComponent<NPCTalk>().questName && !nextNPCQuestGiver.GetComponent<NPCTalk>().questMark)
-        {
-            player.GetComponent<PlayerQuests>().CompleteQuest(questName);
-            replyText.text = allQuests.GetReply(questName);
-            ArrayList items = allQuests.GetItemsGiven(questName);//use to show what items we get
-            replyText.text += "\n\nExperience Given: " + allQuests.GetExp(questName) ;
-            questMark.SetActive(false);
-            replyPanel.SetActive(true);
-            NPCQuestGiver.GetComponent<NPCTalk>().enabled = false;
-            //nextNPCQuestGiver.AddComponent<NPCTalk>().enabled = false;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().player = NPCQuestGiver.GetComponent<NPCTalk>().player;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().questMarkPrefab = NPCQuestGiver.GetComponent<NPCTalk>().questMarkPrefab;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().questName = nextQuestName;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().questPanel = NPCQuestGiver.GetComponent<NPCTalk>().questPanel;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().replyPanel = NPCQuestGiver.GetComponent<NPCTalk>().replyPanel;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().questTitleText = NPCQuestGiver.GetComponent<NPCTalk>().questTitleText;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().questDescriptionText = NPCQuestGiver.GetComponent<NPCTalk>().questDescriptionText;
-            nextNPCQuestGiver.GetComponent<NPCTalk>().replyText = NPCQuestGiver.GetComponent<NPCTalk>().replyText;
-            //nextNPCQuestGiver.GetComponent<NPCTalk>().enabled = true;
-            //GetComponent<NPCTurnIn>().enabled = false;
-            //nextNPCQuestGiver.GetComponent<NPCTalk>().questMark = NPCQuestGiver.GetComponent<NPCTalk>().questMark;
+        //if (Input.GetMouseButtonDown(1) && player.GetComponent<PlayerQuests>().GetQuestStatus(questName) == "Active" && questName == NPCQuestGiver.GetComponent<NPCTalk>().questToGive && !nextNPCQuestGiver.GetComponent<NPCTalk>().questMark) {
+        //    player.GetComponent<PlayerQuests>().CompleteQuest(questName);
+        //    replyText.text = allQuests.GetReply(questName);
+        //    ArrayList items = allQuests.GetItemsGiven(questName);//use to show what items we get
+        //    replyText.text += "\n\nExperience Given: " + allQuests.GetExp(questName);
+        //    questMark.SetActive(false);
+        //    replyPanel.SetActive(true);
+        //    NPCQuestGiver.GetComponent<NPCTalk>().enabled = false;
+        //    nextNPCQuestGiver.AddComponent<NPCTalk>().enabled = false;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().player = NPCQuestGiver.GetComponent<NPCTalk>().player;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questMarkPrefab = NPCQuestGiver.GetComponent<NPCTalk>().questMarkPrefab;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questToGive = nextQuestName;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questPanel = NPCQuestGiver.GetComponent<NPCTalk>().questPanel;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().replyPanel = NPCQuestGiver.GetComponent<NPCTalk>().replyPanel;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questTitleText = NPCQuestGiver.GetComponent<NPCTalk>().questTitleText;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questDescriptionText = NPCQuestGiver.GetComponent<NPCTalk>().questDescriptionText;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().replyText = NPCQuestGiver.GetComponent<NPCTalk>().replyText;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().enabled = true;
+        //    GetComponent<NPCTurnIn>().enabled = false;
+        //    nextNPCQuestGiver.GetComponent<NPCTalk>().questMark = NPCQuestGiver.GetComponent<NPCTalk>().questMark;
 
 
-        }
+        //}
     }
 }
