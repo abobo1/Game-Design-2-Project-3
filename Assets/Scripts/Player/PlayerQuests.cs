@@ -6,22 +6,18 @@ public class PlayerQuests : MonoBehaviour {
 
     private Quests playerQuests = new Quests();
     private long count = 0;
-    public Text questTitle;
+
+    public Text questTitleText;
 
     //Just here to quickly complete the quest. For testing
     void Start()
     {
         GameObject.Find("QuestPanel").SetActive(false);
-        GameObject.Find("ReplyPanel").SetActive(false);
-
     }
 
    
     void Update() {
-        //count++;
-        //if (count > 300) {
-        //    CompleteQuest("Quest1");
-        //}
+        
     }
 
 
@@ -41,5 +37,13 @@ public class PlayerQuests : MonoBehaviour {
         playerQuests.CompleteQuest(questName);
         //Take items from this quest out of inventory
         //Get reward for this quest (XP and Items)
+    }
+
+    public void CompleteQuest() {
+        playerQuests.CompleteQuest(questTitleText.text);
+    }
+
+    public void AcceptQuest() {
+        playerQuests.SetQuestStatus(questTitleText.text, "Active");
     }
 }
