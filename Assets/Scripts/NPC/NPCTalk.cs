@@ -34,8 +34,9 @@ public class NPCTalk : MonoBehaviour {
     public Text questTitleText;
     public Text questDescriptionText;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         Vector3 pos = new Vector3(gameObject.transform.position.x, 2, gameObject.transform.position.z);
         questMark = (GameObject)Instantiate(questMarkPrefab,gameObject.transform);
         questMark.transform.position = pos;
@@ -43,12 +44,15 @@ public class NPCTalk : MonoBehaviour {
 
         playerQuests = player.GetComponent<PlayerQuests>();
 
-        questDescription = allQuests.GetQuestDescription(questToGive);
-        replyDescription = allQuests.GetReply(questToGive);
-        notFinishedReply = allQuests.GetNotFinishedReply(questToGive);
-        finishedReply = allQuests.GetFinishedReply(questToGive);
         doIHaveAQuestToGive = questToGive != "";
         doIHaveAQuestToComplete = questToComplete != "";
+
+        if (doIHaveAQuestToGive) {
+            questDescription = allQuests.GetQuestDescription(questToGive);
+            replyDescription = allQuests.GetReply(questToGive);
+            notFinishedReply = allQuests.GetNotFinishedReply(questToGive);
+            finishedReply = allQuests.GetFinishedReply(questToGive);
+        }
     }
     void OnAwake() {
         questPanel.SetActive(false);
@@ -66,7 +70,7 @@ public class NPCTalk : MonoBehaviour {
         bool isQuestReadyToPickUp = IsQuestReadyToPickUp();
         bool readyToTurnIn = IsQuestReadyToTurnIn();
 
-        if (!isQuestReadyToPickUp && !readyToTurnIn && questToGiveStatus.Equals("Inactive") && questToCompleteStatus.Equals("Inactive")) {
+        if (!isQuestReadyToPickUp && !readyToTurnIn && (questToGiveStatus.Equals("Inactive") || questToGiveStatus.Equals("")) && !questToCompleteStatus.Equals("Active") ) {
             currentState = 1;
             questMark.SetActive(false);
         } else if (isQuestReadyToPickUp && questToGiveStatus.Equals("Inactive")) {
@@ -157,26 +161,34 @@ public class NPCTalk : MonoBehaviour {
     }
 
     private bool IsQuestReadyToTurnIn() {
-        int numberNeeded = allQuests.GetNumberOfItemsNeeded(questToGive);
-        string itemName = allQuests.GetItemNeeded(questToGive);
-        //Check if player has numberNeeded of itemName in inventory
-        //if true
+        if (doIHaveAQuestToComplete && !playerQuests.IsQuestCompleted(questToComplete)) {
+            int numberNeeded = allQuests.GetNumberOfItemsNeeded(questToComplete);
+            string itemName = allQuests.GetItemNeeded(questToComplete);
+            //Check if player has numberNeeded of itemName in inventory
+            //if true
             return true;
-        //else
-                //return false;
+            //else
+            //return false;
+        } else {
+            return false;
+        }
     }
 
     private bool IsQuestReadyToPickUp() {
-        int requiredLevel = allQuests.GetLevelRequired(questToGive);
-        string questRequired = allQuests.GetQuestRequired(questToGive);
-        bool questInactive = playerQuests.GetQuestStatus(questToGive).Equals("Inactive");
-        bool requiredQuestCompleted = true;
-        if (questRequired != "") {
-            requiredQuestCompleted = playerQuests.IsQuestCompleted(questRequired);
+        if (doIHaveAQuestToGive) {
+            int requiredLevel = allQuests.GetLevelRequired(questToGive);
+            string questRequired = allQuests.GetQuestRequired(questToGive);
+            bool questInactive = playerQuests.GetQuestStatus(questToGive).Equals("Inactive");
+            bool requiredQuestCompleted = true;
+            if (questRequired != "") {
+                requiredQuestCompleted = playerQuests.IsQuestCompleted(questRequired);
+            }
+            if (requiredQuestCompleted && questInactive) { //Check here if player level is high enough
+                return true;
+            }
+            return false;
+        } else {
+            return false;
         }
-        if (requiredQuestCompleted && questInactive) { //Check here if player level is high enough
-            return true;
-        }
-        return false;
     }
 }
