@@ -9,10 +9,12 @@ public class Quests {
 
     public enum Status {ACTIVE, INACTIVE, COMPLETED};
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", "Go do quest 1", "You finished quest 1", 150, new ArrayList(), Status.INACTIVE,
+        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", "Go do quest 1", "You aren't ready to complete quest 1", "You finished quest 1", 150, new ArrayList(), Status.INACTIVE,
                                             0, "", 0, ""));
-        allQuests.Add("Quest2", new Quest("Quest1", "This is quest #2", "Go do quest 2", "You finished quest 2", 300, new ArrayList(), Status.INACTIVE,
+        allQuests.Add("Quest2", new Quest("Quest2", "This is quest #2", "Go do quest 2", "You aren't ready to complete quest 2", "You finished quest 2", 300, new ArrayList(), Status.INACTIVE,
                                             0, "", 0, "Quest1"));
+        allQuests.Add("Quest3", new Quest("Quest3", "This is quest #3", "Go do quest 3", "You aren't ready to complete quest 3", "You finished quest 3", 300, new ArrayList(), Status.INACTIVE,
+                                            0, "", 0, "Quest2"));
     }
 
     public string GetQuestName(string questName) {
@@ -128,11 +130,17 @@ public class Quests {
         return x.requiredQuestCompleted;
     }
 
+    public string GetNotFinishedReply(string questName) {
+        Quest x = allQuests[questName] as Quest;
+        return x.notFinished;
+    }
+
     private class Quest {
 
         public string name;
         public string description;
         public string reply;
+        public string notFinished;
         public string finished;
         public int experience;
         public ArrayList itemsGiven;
@@ -142,11 +150,12 @@ public class Quests {
         public int requiredLevel;
         public string requiredQuestCompleted;
 
-        public Quest(string name, string description, string reply, string finished, int experience, ArrayList itemsGiven, Status questStatus,
+        public Quest(string name, string description, string reply, string notFinished, string finished, int experience, ArrayList itemsGiven, Status questStatus,
                         int numberTurnInNeeded, string itemToTurnIn, int requiredLevel, string requiredQuestCompleted) {
             this.name = name;
             this.description = description;
             this.reply = reply;
+            this.notFinished = notFinished;
             this.finished = finished;
             this.experience = experience;
             this.itemsGiven = itemsGiven;

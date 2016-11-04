@@ -1,10 +1,19 @@
 fileFormatVersion: 2
 guid: 72f7606d667f9d14ab7937540569a206
-timeCreated: 1476762548
+timeCreated: 1478051952
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - questMarkPrefab: {fileID: 1000012450797686, guid: e5f91b63ed5d1d9458b43d1f812d4005,
+      type: 2}
+  - questPanel: {instanceID: 0}
+  - dismissButton: {instanceID: 0}
+  - acceptButton: {instanceID: 0}
+  - questTitleText: {instanceID: 0}
+  - questDescriptionText: {instanceID: 0}
+  - replyText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
