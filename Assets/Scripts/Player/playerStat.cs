@@ -64,14 +64,25 @@ public class playerStat : MonoBehaviour {
         return skillPoints;
     }
     
-    void setHealthandMp()
+    void resetHealtManaToMax()
     {
         hpCurrent = getHpMax();
         mpCurrent = getMpMax();
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void AddMana(int amount) {
+        mpCurrent = mpCurrent + amount;
+    }
+
+    public void RemoveMana(int amount) {
+        mpCurrent = mpCurrent - amount;
+    }
+
+    public void AddHealth(int amount) {
+        hpCurrent = hpCurrent + amount;
+    }
+
+    public void RemoveHealth(int amount) {
+        hpCurrent = hpCurrent - amount;
+    }
 }
