@@ -72,17 +72,29 @@ public class playerStat : MonoBehaviour {
 	
     public void AddMana(int amount) {
         mpCurrent = mpCurrent + amount;
+        if (mpCurrent > mpMax) {
+            mpCurrent = mpMax;
+        }
     }
 
     public void RemoveMana(int amount) {
         mpCurrent = mpCurrent - amount;
+        if (mpCurrent < 0) {
+            mpCurrent = 0;
+        }
     }
 
     public void AddHealth(int amount) {
         hpCurrent = hpCurrent + amount;
+        if (hpCurrent > hpMax) {
+            hpCurrent = hpMax;
+        }
     }
 
     public void RemoveHealth(int amount) {
         hpCurrent = hpCurrent - amount;
+        if (hpCurrent <= 0) {
+            //DEAD
+        }
     }
 }
