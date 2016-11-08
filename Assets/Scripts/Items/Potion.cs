@@ -5,6 +5,8 @@ public class Potion : MonoBehaviour {
 
     public int size;
 
+    public int numberOwned = 2;
+
     private int maxHeal;
     private GameObject player;
     private playerStat playerStat;
@@ -17,7 +19,10 @@ public class Potion : MonoBehaviour {
 	}
 
     public void UsePotion() {
-        playerStat.AddHealth(maxHeal);
+        if (numberOwned > 0) {
+            playerStat.AddHealth(maxHeal);
+            numberOwned--;
+        }
     }
 
 
