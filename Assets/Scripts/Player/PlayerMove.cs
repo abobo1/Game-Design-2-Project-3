@@ -43,6 +43,5 @@ public class PlayerMove : MonoBehaviour {
             transform.Rotate(Vector3.up, horiz * Time.deltaTime * turningspeed);
 
         moveDirection.y -= gravity * Time.deltaTime;
-        Debug.Log(horiz * Time.deltaTime * turningspeed);
 	}
 }
