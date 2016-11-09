@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour {
             moveDirection = new Vector3(horiz, 0, vert);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed;
+            moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
             transform.Rotate(Vector3.up, 2 * horiz * Time.deltaTime * turningspeed);
         }
@@ -36,12 +37,12 @@ public class PlayerMove : MonoBehaviour {
             moveDirection = new Vector3(horiz, 0, vert);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= moveSpeed/3;
+            moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
             transform.Rotate(Vector3.up, 2 * horiz * Time.deltaTime * turningspeed);
         }
         else
             transform.Rotate(Vector3.up, horiz * Time.deltaTime * turningspeed);
 
-        moveDirection.y -= gravity * Time.deltaTime;
 	}
 }
