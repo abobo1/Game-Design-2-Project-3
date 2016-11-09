@@ -25,7 +25,11 @@ public class NPCTalk : MonoBehaviour {
 
     private GameObject questMark;
 
+
     private GameObject player;
+
+    public Transform questMarktrans;
+
     public GameObject questMarkPrefab;
     public GameObject questPanel;
     public GameObject closeButton;
@@ -37,8 +41,8 @@ public class NPCTalk : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Vector3 pos = new Vector3(gameObject.transform.position.x, 2, gameObject.transform.position.z);
-        questMark = (GameObject)Instantiate(questMarkPrefab, gameObject.transform);
+        Vector3 pos = new Vector3(questMarktrans.position.x, questMarktrans.position.y, questMarktrans.position.z);
+        questMark = (GameObject)Instantiate(questMarkPrefab, questMarktrans);
         questMark.transform.position = pos;
         questMark.SetActive(false);
         questPanel.SetActive(false);
