@@ -9,9 +9,10 @@ public class Quests {
 
     public enum Status {ACTIVE, INACTIVE, COMPLETED};
     public Quests() {
-        allQuests.Add("Quest1", new Quest("Quest1", "This is quest #1", "Go do quest 1", "You aren't ready to complete quest 1", "You finished quest 1", 150, new ArrayList(), Status.INACTIVE,
+        allQuests.Add("Quest1", new Quest("Quest1", "We’re losing this battle, go get help now!", "Stop stalling!", "You aren't ready to complete quest 1", "Those brutes will not see what hits them! Send our best troops to demolish their establishment.", 150, new ArrayList(), Status.INACTIVE,
                                             0, "", 0, ""));
-        allQuests.Add("Quest2", new Quest("Quest2", "This is quest #2", "Go do quest 2", "You aren't ready to complete quest 2", "You finished quest 2", 300, new ArrayList(), Status.INACTIVE,
+        allQuests.Add("Quest2", new Quest("Quest2", "Something dreadful has happened in the north and we did some investigation into the event...There are..uh...Stranger things going on up on the mountain.  I feel that a tough character like you should go and see for yourself and come back, let us know what you find.", 
+                                            "Go see what's going on in the north", "You aren't ready to complete this quest", "Thank you for your service", 300, new ArrayList(), Status.INACTIVE,
                                             0, "", 0, "Quest1"));
         allQuests.Add("Quest3", new Quest("Quest3", "This is quest #3", "Go do quest 3", "You aren't ready to complete quest 3", "You finished quest 3", 300, new ArrayList(), Status.INACTIVE,
                                             0, "", 0, "Quest2"));

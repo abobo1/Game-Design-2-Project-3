@@ -12,7 +12,7 @@ public class PlayerQuests : MonoBehaviour {
     //Just here to quickly complete the quest. For testing
     void Start()
     {
-        GameObject.Find("QuestPanel").SetActive(false);
+        //GameObject.Find("QuestPanel").SetActive(false);
     }
 
    

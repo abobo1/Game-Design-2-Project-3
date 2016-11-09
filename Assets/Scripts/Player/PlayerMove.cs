@@ -15,6 +15,8 @@ public class PlayerMove : MonoBehaviour {
 	void Update () {
         float vert = Input.GetAxis("Vertical");
         float horiz = Input.GetAxis("Horizontal");
+        moveDirection = Vector3.zero;
+
         /*
         if (vert > 0)
             transform.Translate(0, 0, vert * moveSpeed * Time.deltaTime);

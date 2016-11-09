@@ -25,7 +25,7 @@ public class NPCTalk : MonoBehaviour {
 
     private GameObject questMark;
 
-    public GameObject player;
+    private GameObject player;
     public GameObject questMarkPrefab;
     public GameObject questPanel;
     public GameObject closeButton;
@@ -36,11 +36,14 @@ public class NPCTalk : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         Vector3 pos = new Vector3(gameObject.transform.position.x, 2, gameObject.transform.position.z);
-        questMark = (GameObject)Instantiate(questMarkPrefab,gameObject.transform);
+        questMark = (GameObject)Instantiate(questMarkPrefab, gameObject.transform);
         questMark.transform.position = pos;
         questMark.SetActive(false);
+        questPanel.SetActive(false);
+
+        player = GameObject.FindGameObjectWithTag("Player");
 
         playerQuests = player.GetComponent<PlayerQuests>();
 
@@ -54,11 +57,8 @@ public class NPCTalk : MonoBehaviour {
             finishedReply = allQuests.GetFinishedReply(questToGive);
         }
     }
-    void OnAwake() {
-        questPanel.SetActive(false);
-    }
 
-    void LateUpdate() {
+    void Update() {
         string questToGiveStatus = "";
         string questToCompleteStatus = "";
         if (doIHaveAQuestToGive) {
@@ -70,7 +70,7 @@ public class NPCTalk : MonoBehaviour {
         bool isQuestReadyToPickUp = IsQuestReadyToPickUp();
         bool readyToTurnIn = IsQuestReadyToTurnIn();
 
-        if (!isQuestReadyToPickUp && !readyToTurnIn && (questToGiveStatus.Equals("Inactive") || questToGiveStatus.Equals("")) && !questToCompleteStatus.Equals("Active") ) {
+        if (!isQuestReadyToPickUp && !readyToTurnIn && (questToGiveStatus.Equals("Inactive") || questToGiveStatus.Equals("")) && !questToCompleteStatus.Equals("Active")) {
             currentState = 1;
             questMark.SetActive(false);
         } else if (isQuestReadyToPickUp && questToGiveStatus.Equals("Inactive")) {
@@ -190,5 +190,19 @@ public class NPCTalk : MonoBehaviour {
         } else {
             return false;
         }
+    }
+
+    public void AcceptQuest() {
+        player.GetComponent<PlayerQuests>().AcceptQuest();
+    }
+
+    public void CompleteQuest() {
+        player.GetComponent<PlayerQuests>().CompleteQuest();
+    }
+
+    public void CompleteQuest(string questName) {
+        playerQuests.CompleteQuest(questName);
+        //Take items from this quest out of inventory
+        //Get reward for this quest (XP and Items)
     }
 }
