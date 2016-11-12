@@ -5,40 +5,74 @@ using UnityEngine.UI;
 
 public class playerStat : MonoBehaviour {
 
-    private float hpCurrent, hpMax, mpCurrent, mpMax, intellect, spirit, stamina, strength;
+    public float hpCurrent, hpMax, mpCurrent, mpMax, intellect, spirit, stamina, strength;
     private int playerLevel, skillPoints,skillPointMax;
     public int playerId;
     private List<Items> playerInv;
-    private List<Spells> playerSpells;
+    //public List<Spells> playerSpells;
+    public Spells playerSpells;// = new Spells(playerId);//test only set back to playerId
     public GameObject playerHud;
 
-    public playerStat()
-    {
-        
+
+   
+
+    void Start() {
         playerLevel = 1;
         skillPoints = 0;
         skillPointMax = 0;
         spirit = 20;
         stamina = 20;
+        
 
         if (playerId == 0 || playerId == 2)
-        { intellect = 20; strength = 5;}
+        { intellect = 20; strength = 5; }
         else
-        { intellect = 5;strength = 20; }
-            
-    }
+        { intellect = 5; strength = 20; }
 
-    void Start() {
+        hpMax = stamina * 2.5f;
+        mpMax = intellect * 2.5f;
+        resetHealtManaToMax();
+
+
         playerHud = (GameObject)Instantiate(playerHud);
         playerHud.name = "spellBar";
         playerHud.GetComponent<playerHud>().playerId = playerId;
         //playerId = GameObject.Find("GameController").GetComponent<mainMenu>().playerId;
         //playerId = 0;//test only
-        Spells playerSpells = new Spells(playerId);//test only set back to playerId
+        //Spells playerSpells = new Spells(playerId);//test only set back to playerId
+        playerSpells = new Spells(playerId);//test only set back to playerId
         //Items playerInv = new Items(true);
         playerInv playerINV = new playerInv();
         Items itemList = new Items(false);
-        //Debug.Log(playerSpells.spellList[playerSpells.totalSpells-1].cost);
+        //Debug.Log(playerSpells.getCost(0));
+    }
+    public bool checkAbility (int id)
+    {
+        if (playerSpells.getCost(id) <= getMpCurrent())
+            return true;
+        else
+            return false;
+    }
+    public void setHpCurrent (float amount)
+    {
+        hpCurrent += amount;
+        if (hpCurrent > hpMax)
+            hpCurrent = getHpMax();
+        else
+        {
+            //die
+        }
+
+    }
+    public void setMpCurrent (float amount)
+    {
+        mpCurrent += amount;
+        if (mpCurrent > mpMax)
+            mpCurrent = mpMax;
+        else
+        {
+            //oh well...
+        }
     }
     public float getHpCurrent(){
         return hpCurrent;

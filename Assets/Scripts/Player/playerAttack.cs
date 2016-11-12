@@ -4,6 +4,18 @@ using System.Collections;
 public class playerAttack : MonoBehaviour {
 
 
+    public GameObject player;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public void sendAttack(int id)
+    {
+        player.GetComponent<playerInteract>().useAbility(id);
+    }
+    
+    /*
     bool toolTip = false;
     string spellName;
     float uiWidth, uiHeight;
@@ -44,4 +56,5 @@ public class playerAttack : MonoBehaviour {
         if (toolTip)
         GUI.Label(new Rect(uiWidth,uiHeight , 128, 32), spellName);
     }
+    */
     }
