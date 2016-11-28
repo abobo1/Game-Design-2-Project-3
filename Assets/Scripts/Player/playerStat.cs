@@ -12,6 +12,8 @@ public class playerStat : MonoBehaviour {
     //public List<Spells> playerSpells;
     public Spells playerSpells;// = new Spells(playerId);//test only set back to playerId
     public GameObject playerHud;
+    public float healthScale, manaScale;
+    
 
 
    
@@ -35,6 +37,9 @@ public class playerStat : MonoBehaviour {
 
 
         playerHud = (GameObject)Instantiate(playerHud);
+
+        healthScale = GameObject.Find("healthImage").gameObject.transform.localScale.x;
+        //GameObject.Find("healthImage").gameObject.transform.localScale.x = GameObject.Find("healthImage").gameObject.transform.localScale.x / 2;
         playerHud.name = "spellBar";
         playerHud.GetComponent<playerHud>().playerId = playerId;
         //playerId = GameObject.Find("GameController").GetComponent<mainMenu>().playerId;
