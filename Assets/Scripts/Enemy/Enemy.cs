@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	private Transform target;
-    private float speed = 2.5f;
+    private float moveSpeed = 2.5f;
     private float attack1Range = 10f;
     private float attack2Range = 5f;
     private float attackRange;
@@ -39,23 +39,33 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 5);
+       // hash.speed = 5.0f;
+        //ani.SetFloat(hash.speed, 5.0f);
+        Debug.Log("speed: " +ani.GetFloat(hash.speed) + " Hash ID:" + hash.speed);
+        
+        
         //ani.SetFloat(hash.speed, 5f);
-        GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 0);
+        //GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 0);
         attackDistance = Vector3.Distance(transform.position, target.position);
-		if(attackDistance < 50.0f) {
+		if(attackDistance > attackRange) {
 			MoveToPlayer();
         }
 		else {
-			//Rest();
+			Rest();
+            //Debug.Log("rest");
 		}
 	}
-
 	public void MoveToPlayer ()
     {
+
+        ani.SetFloat(hash.speed, 5.0f);
+        //ani.SetFloat(hash.speed, 5f);
         //rotate to look at player
         transform.LookAt (target);
         //transform.Rotate (new Vector3 (0, -90, 0), Space.Self);
-		//enemyAni.SetFloat(enemyHashID.speed, 3.0f);
+		//enemyAni.SetFloat(enemyHashID.speed, 5.0f);
          
         //move towards player
         if (Vector3.Distance (transform.position, target.position) > attackRange) 
@@ -64,11 +74,22 @@ public class Enemy : MonoBehaviour {
             transform.Translate(Vector3.forward * Time.deltaTime * 5);
             //enemyAni.SetFloat(enemyHashID.speed, 5);
         }
+        else
+        {
+            Attack();
+            Rest();
+        }
     }
  
     public void Rest ()
     {
+        ani.SetFloat(hash.speed, 0);
         //ani.SetFloat(hash.speed, 0);
-        GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 0);
+        //GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 0);
+        ani.SetBool(hash.attack1, false);
+    }
+    public void Attack()
+    {
+        ani.SetBool(hash.attack1, true);
     }
 }
