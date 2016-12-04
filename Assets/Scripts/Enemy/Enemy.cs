@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
     private float attackDistance;
     private GameObject player;
     public string enemyType;
+    private int coolDown = 160;
+    private int coolDownLeft = 0;
 
 
 	
@@ -42,8 +44,8 @@ public class Enemy : MonoBehaviour {
 
         //GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 5);
        // hash.speed = 5.0f;
-        //ani.SetFloat(hash.speed, 5.0f);
-        Debug.Log("speed: " +ani.GetFloat(hash.speed) + " Hash ID:" + hash.speed);
+        ani.SetFloat(hash.speed, 5.0f);
+        //Debug.Log("speed: " + ani.GetFloat(hash.speed) + " Hash ID:" + hash.speed);
         
         
         //ani.SetFloat(hash.speed, 5f);
@@ -53,8 +55,10 @@ public class Enemy : MonoBehaviour {
 			MoveToPlayer();
         }
 		else {
-			Rest();
-            //Debug.Log("rest");
+            if(coolDownLeft <= 0)
+                Attack();
+            else if(coolDownLeft > 0)
+			    Rest();
 		}
 	}
 	public void MoveToPlayer ()
@@ -77,19 +81,21 @@ public class Enemy : MonoBehaviour {
         else
         {
             Attack();
-            Rest();
+            //Rest();
         }
     }
  
     public void Rest ()
     {
+        coolDownLeft--;
         ani.SetFloat(hash.speed, 0);
-        //ani.SetFloat(hash.speed, 0);
         //GetComponent<Animator>().SetFloat(GetComponent<HashID>().speed, 0);
         ani.SetBool(hash.attack1, false);
     }
     public void Attack()
     {
+        //ani.SetFloat(hash.speed, 0);
+        coolDownLeft = coolDown;
         ani.SetBool(hash.attack1, true);
     }
 }
