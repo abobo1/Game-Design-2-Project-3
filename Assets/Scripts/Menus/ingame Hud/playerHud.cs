@@ -9,15 +9,20 @@ public class playerHud : MonoBehaviour {
     public List<GameObject> menus;// = new List<GameObject>(){ GameObject.Find("QuestMenu") };
     public List<Image> buttonImages;
     public List<Image> resourceIcons;
+    public float healthScale, manaScale;
 
     public Sprite[] ElissaIcons,KaliIcons,BauxikIcons,ZachellionIcons,DrakelIcons,ZofeIcons,potionIcons;
     public void Start()
     {
-        resourceIcons[0].transform.localScale = new Vector3(.1f,.18f,.1f);
+        //resourceIcons[0].transform.position = new Vector3(.1f,.18f,.1f);
 
         menus = new List<GameObject>() { GameObject.Find("QuestMenu"), GameObject.Find("Inventory") , GameObject.Find("Spells") , GameObject.Find("Equip") , GameObject.Find("skillTree") , GameObject.Find("Quest") };
         buttonImages = new List<Image>() { GameObject.Find("ImageButton").GetComponent<Image>(), GameObject.Find("ImageButton1").GetComponent<Image>(), GameObject.Find("ImageButton2").GetComponent<Image>(), GameObject.Find("ImageButton3").GetComponent<Image>(), GameObject.Find("ImageButton4").GetComponent<Image>(), GameObject.Find("ImageButton5").GetComponent<Image>(), GameObject.Find("ImageButton6").GetComponent<Image>(), GameObject.Find("ImageButton7").GetComponent<Image>(), GameObject.Find("ImageButton8").GetComponent<Image>(), GameObject.Find("ImageButton9").GetComponent<Image>() };
         closeAllMenu();
+        healthScale = 135f;
+        manaScale = 135f;
+        resourceIcons[0].transform.position = new Vector3(390f, 135f, .1f);
+        resourceIcons[1].transform.position = new Vector3(432f, 135f, .1f);
 
 
         if (playerId != -1)
@@ -41,8 +46,24 @@ public class playerHud : MonoBehaviour {
             buttonImages[i + 7].sprite = potionIcons[i];
         }
     }
+    void Update()
+    {
+        resourceIcons[0].transform.position = new Vector3(390f, healthScale, .1f);
+        resourceIcons[1].transform.position = new Vector3(432f, manaScale, .1f);
 
+    }
 
+    public void scaleValues (string name, float value)
+    {
+        if (name == "Health")
+        {
+            healthScale -= value;
+        }
+        else if (name == "Mana")
+        {
+            manaScale -= value;
+        }
+    }
 	public void openMenu(int menuId)
     {
         closeAllMenu(); 

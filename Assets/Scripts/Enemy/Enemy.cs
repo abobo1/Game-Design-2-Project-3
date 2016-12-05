@@ -98,4 +98,11 @@ public class Enemy : MonoBehaviour {
         coolDownLeft = coolDown;
         ani.SetBool(hash.attack1, true);
     }
+
+    void OnCollisionEnter (Collision col)
+    {
+        if (col.gameObject.tag == "Player")
+            GameObject.Find("spellBar").GetComponent<playerHud>().scaleValues("Health", 10f);
+    }
 }
+
